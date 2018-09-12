@@ -17,9 +17,9 @@ export class HomePage {
   ionViewDidLoad(){
  
     this.items = [
-      {id: 'hi1', name: 'test1'},
-      {id: 'hi2', name: 'test2'},
-      {id: 'hi3', name: 'test3'}
+      {_id: 'hi1', name: 'test1'},
+      {_id: 'hi2', name: 'test2'},
+      {_id: 'hi3', name: 'test3'}
     ];
  
   }

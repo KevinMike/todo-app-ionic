@@ -15,7 +15,7 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 })
 export class AddItemPage {
 
-  id: string;
+  _id: string;
   name: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public view: ViewController) {
@@ -28,7 +28,7 @@ export class AddItemPage {
   saveItem(){
  
     let newItem = {
-      id: this.id,
+      id: this._id,
       name: this.name
     };
  
