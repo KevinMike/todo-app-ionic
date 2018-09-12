@@ -10,7 +10,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class UserInterfaceProvider {
 
-  private uri = 'https://todo-app-kevinmike.herokuapp.com/task'
+  private uri = 'https://todo-app-kevinmike.herokuapp.com/task/'
   constructor(public http: HttpClient) {
     console.log('Hello UserInterfaceProvider Provider');
   }

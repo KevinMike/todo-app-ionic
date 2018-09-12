@@ -13,22 +13,18 @@ export class HomePage {
   public items;
 
   constructor(public navCtrl: NavController, public modalCtrl : ModalController, public userService : UserInterfaceProvider) {
-    this.userService.getTask()
+ 
+  }
+
+  ionViewDidLoad(){
+    
+    return this.userService.getTask()
     .then(data=>{
       this.items = data;
     })
     .catch(err=>{
       console.error(err);
     })
-  }
-
-  ionViewDidLoad(){
-    
-    this.items = [
-      {id: 'hi1', name: 'test1'},
-      {id: 'hi2', name: 'test2'},
-      {id: 'hi3', name: 'test3'}
-    ];
   }
  
   addItem(){
