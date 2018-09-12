@@ -1,27 +1,34 @@
 import { Component } from '@angular/core';
 import { NavController, ModalController } from 'ionic-angular';
 import { AddItemPage } from '../add-item/add-item'
-import {ItemDetailPage} from '../item-detail/item-detail'
+import {ItemDetailPage} from '../item-detail/item-detail';
+import {UserInterfaceProvider} from '../../providers/user-interface/user-interface'
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
 
-  public items = [];
+  public items;
 
-  constructor(public navCtrl: NavController, public modalCtrl : ModalController) {
-
+  constructor(public navCtrl: NavController, public modalCtrl : ModalController, public userService : UserInterfaceProvider) {
+    this.userService.getTask()
+    .then(data=>{
+      this.items = data;
+    })
+    .catch(err=>{
+      console.error(err);
+    })
   }
 
   ionViewDidLoad(){
- 
+    
     this.items = [
-      {_id: 'hi1', name: 'test1'},
-      {_id: 'hi2', name: 'test2'},
-      {_id: 'hi3', name: 'test3'}
+      {id: 'hi1', name: 'test1'},
+      {id: 'hi2', name: 'test2'},
+      {id: 'hi3', name: 'test3'}
     ];
- 
   }
  
   addItem(){

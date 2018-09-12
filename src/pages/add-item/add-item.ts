@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
-
+import {UserInterfaceProvider} from '../../providers/user-interface/user-interface';
 /**
  * Generated class for the AddItemPage page.
  *
@@ -18,7 +18,7 @@ export class AddItemPage {
   _id: string;
   name: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public view: ViewController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public view: ViewController,public userService : UserInterfaceProvider) {
   }
 
   ionViewDidLoad() {
@@ -26,13 +26,18 @@ export class AddItemPage {
   }
 
   saveItem(){
- 
     let newItem = {
-      id: this._id,
       name: this.name
     };
+    return this.userService.addTask(newItem)
+    .then(data => {
+      this.view.dismiss(newItem);
+    })
+    .catch(err=>{
+      console.error(err);
+    })
  
-    this.view.dismiss(newItem);
+    
  
   }
  
