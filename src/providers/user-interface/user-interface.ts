@@ -26,8 +26,8 @@ export class UserInterfaceProvider {
   }
 
   addTask(data){
-    return new Promise((resolve, reject) => {
-      this.http.post(this.uri, JSON.stringify(data))
+    return new Promise((resolve, reject) => {      
+      this.http.post(this.uri, data,{headers: { 'Content-Type': 'application/json' }})
         .subscribe(res => {
           resolve(res);
         }, (err) => {

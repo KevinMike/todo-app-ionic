@@ -51,7 +51,15 @@ export class HomePage {
     this.navCtrl.push(ItemDetailPage, {
       item: item
     });
+    this.items =  this.arrayRemove(this.items,item);
   }
  
+  arrayRemove(arr, value) {
+
+    return arr.filter(function(ele){
+        return ele != value;
+    });
+ 
+ }
 
 }

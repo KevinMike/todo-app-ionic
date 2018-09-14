@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
 import {UserInterfaceProvider} from '../../providers/user-interface/user-interface';
 
 /**
@@ -19,7 +19,7 @@ export class ItemDetailPage {
   _id:string;
   name:string;
  
-  constructor(public navCtrl: NavController, public navParams: NavParams,public userService : UserInterfaceProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public userService : UserInterfaceProvider,public view: ViewController) {
   }
 
   ionViewDidLoad() {
@@ -30,7 +30,7 @@ export class ItemDetailPage {
   deleteItem(){
     return this.userService.deleteTask(this._id)
     .then(data => {
-      console.log(data);
+      this.navCtrl.pop();
     })
     .catch(err=>{
       console.error(err);

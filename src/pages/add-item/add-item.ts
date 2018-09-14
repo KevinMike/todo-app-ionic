@@ -31,7 +31,7 @@ export class AddItemPage {
     };
     return this.userService.addTask(newItem)
     .then(data => {
-      this.view.dismiss(newItem);
+      this.view.dismiss(data['result']);
     })
     .catch(err=>{
       console.error(err);
